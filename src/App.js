@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
@@ -33,7 +33,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        
+        <Counter></Counter>
         <p>
           Edit Done and save to reload.
         </p>
@@ -104,8 +104,6 @@ function Product(props){
 
     // const {name,price} = props.product;   // optional destructuring 
 
-
-
   return(
     <div style={productStyles}>
         <h2>{props.p.name}</h2>      
@@ -117,6 +115,31 @@ function Product(props){
 
 
 }
+
+function Counter(){
+  const [count,setCount] = useState(10);
+  const handleIncrease = () => {
+    const newCount = count + 1;
+    setCount(newCount);
+
+  };
+
+
+  return(
+    <div>
+      <h1>Count: {count}</h1>
+      
+
+      <button onClick={handleIncrease}>Increase</button>
+
+      <button onClick={() => setCount(count - 1)}>Decrease</button>  {/* shortcut  */}
+
+
+    </div>
+
+  )
+}
+
 
 
 
